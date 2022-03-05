@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
+import Layout from "../components/Layout";
+import Main from "../components/Main";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <h1>Hello , World!</h1>
-    </div>
+    <Layout
+      general={{ name: "AmirBlog", description: "HHHH", logo: { url: "URL" } }}
+    >
+      <Main />
+    </Layout>
   );
 };
 
