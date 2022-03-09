@@ -25,7 +25,7 @@ export default function Sidebar({ name, description, logoUrl }: Props) {
           }
           alt="logo"
         />
-        <Heading mt="15px" as="h1" size="2xl">
+        <Heading mt="15px" as="h1">
           {name}
         </Heading>
         <Text color="#757575" mt="10px">
