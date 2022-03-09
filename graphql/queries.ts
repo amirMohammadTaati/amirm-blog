@@ -5,6 +5,9 @@ export const GET_ALL_POSTS = gql`
     posts {
       title
       description
+      image {
+        url
+      }
     }
   }
 `;
