@@ -4,6 +4,7 @@ export const GET_ALL_POSTS = gql`
   query {
     posts {
       title
+      createdAt
       description
       slug
       _id
