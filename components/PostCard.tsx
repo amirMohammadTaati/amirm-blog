@@ -1,7 +1,8 @@
 import { Flex, Heading, Text, Box, Image } from "@chakra-ui/react";
 import { Post } from "../lib/types";
+import Link from "next/link";
 
-export default function PostCard({ title, description, image }: Post) {
+export default function PostCard({ title, description, slug, _id }: Post) {
   return (
     <Flex
       w="100%"
@@ -11,11 +12,6 @@ export default function PostCard({ title, description, image }: Post) {
       shadow="xs"
       justify="space-between"
     >
-      {image?.url !== undefined ? (
-        <Box flex={3}>
-          <Image src={image.url} w="100%" h="100%" />
-        </Box>
-      ) : null}
       <Flex
         flex={6}
         padding="50px"
@@ -23,7 +19,10 @@ export default function PostCard({ title, description, image }: Post) {
         flexDir="column"
         justifyContent="space-around"
       >
-        <Heading> {title} </Heading>
+        <Link href="/post/[slug]" as={`/post/${slug}`}>
+          <Heading cursor="pointer"> {title} </Heading>
+        </Link>
+
         <Text color="#757575" lineHeight={2}>
           {description}
         </Text>
