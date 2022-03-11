@@ -4,6 +4,8 @@ export interface Post {
   slug: string;
   _id: string;
   key: string;
+  createdAt: string;
+  content: string;
 }
 
 export interface PostArray {
