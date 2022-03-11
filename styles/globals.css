@@ -16,3 +16,11 @@ body {
 * {
   font-family: "vazir" !important;
 }
+
+code span {
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+pre {
+  direction: ltr;
+}
