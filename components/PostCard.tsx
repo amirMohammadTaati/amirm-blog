@@ -2,7 +2,13 @@ import { Flex, Heading, Text, Box, Image } from "@chakra-ui/react";
 import { Post } from "../lib/types";
 import Link from "next/link";
 
-export default function PostCard({ title, description, slug, _id }: Post) {
+export default function PostCard({
+  title,
+  description,
+  slug,
+  _id,
+  createdAt,
+}: Post) {
   return (
     <Flex
       w="100%"
@@ -25,6 +31,12 @@ export default function PostCard({ title, description, slug, _id }: Post) {
 
         <Text color="#757575" lineHeight={2}>
           {description}
+        </Text>
+
+        <Text mt="15px">
+          {new Intl.DateTimeFormat("fa-IR", {
+            dateStyle: "long",
+          }).format(new Date(createdAt))}
         </Text>
       </Flex>
     </Flex>
