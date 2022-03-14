@@ -27,7 +27,9 @@ export default function PostPage({ post }: { post: Post }) {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slug = params?.slug as string;
 
-  const res = await fetch(`http://localhost:1337/posts?slug=${slug}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API}/posts?slug=${slug}`
+  );
   const json = await res.json();
 
   return {
