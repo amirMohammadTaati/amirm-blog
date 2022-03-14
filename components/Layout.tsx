@@ -1,9 +1,11 @@
 import Sidebar from "./Sidebar";
 
 interface GeneralInfo {
-  name: string;
+  title: string;
   description: string;
-  logo: { url: string };
+  logo: {
+    url: string;
+  };
 }
 interface Props {
   children: React.ReactNode;
@@ -14,9 +16,9 @@ export default function Layout({ children, general }: Props) {
   return (
     <>
       <Sidebar
-        name={general.name}
+        name={general.title}
         description={general.description}
-        logoUrl={general.logo.url}
+        logoUrl={general.logo?.url}
       />
       {children}
     </>

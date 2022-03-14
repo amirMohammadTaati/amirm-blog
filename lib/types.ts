@@ -8,6 +8,14 @@ export interface Post {
   content: string;
 }
 
+export interface PreviewPost {
+  title: string;
+  createdAt: string;
+  description: string;
+  slug: string;
+  _id: string;
+}
+
 export interface PostArray {
-  posts: Post[];
+  posts: PreviewPost[];
 }

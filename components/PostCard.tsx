@@ -8,7 +8,13 @@ export default function PostCard({
   slug,
   _id,
   createdAt,
-}: Post) {
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  _id: string;
+  createdAt: string;
+}) {
   return (
     <Flex
       w="100%"
@@ -29,7 +35,7 @@ export default function PostCard({
           <Heading cursor="pointer"> {title} </Heading>
         </Link>
 
-        <Text color="#757575" lineHeight={2}>
+        <Text color="#757575" lineHeight={2} mt="10px">
           {description}
         </Text>
 

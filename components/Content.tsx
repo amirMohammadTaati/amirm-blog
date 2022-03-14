@@ -1,32 +1,26 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 
 export default function Content({ content }: { content: string }) {
   return (
     <ReactMarkdown
-      children={content}
-      components={{
+      components={ChakraUIRenderer({
         code({ node, inline, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
-            <SyntaxHighlighter
-              children={String(children).replace(/\n$/, "")}
-              language={match[1]}
-              PreTag="div"
-              {...props}
-            />
+            <SyntaxHighlighter language={match[1]} PreTag="div" {...props}>
+              {String(children).replace(/\n$/, "")}{" "}
+            </SyntaxHighlighter>
           ) : (
-            <code
-              className={className}
-              {...props}
-              style={{ fontFamily: "Courier New" }}
-            >
+            <code className={className} {...props}>
               {children}
             </code>
           );
         },
-      }}
-    />
+      })}
+    >
+      2{content}
+    </ReactMarkdown>
   );
 }

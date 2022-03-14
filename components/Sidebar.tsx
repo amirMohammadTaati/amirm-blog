@@ -18,13 +18,7 @@ export default function Sidebar({ name, description, logoUrl }: Props) {
       borderLeft="1px solid #e8e8e8"
     >
       <Flex flexDir="column" alignItems="center" py={75}>
-        <Image
-          boxSize={125}
-          src={
-            "https://res.cloudinary.com/dty2paqwc/image/upload/v1634809517/pi_363183866b.png"
-          }
-          alt="logo"
-        />
+        <Image boxSize={125} src={logoUrl} alt="logo" />
         <Heading mt="15px" as="h1">
           {name}
         </Heading>

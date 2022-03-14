@@ -9,15 +9,15 @@ export default function PostPage({ post }: { post: Post }) {
   }).format(new Date(post.createdAt));
 
   return (
-    <Box h="100vh">
-      <Box textAlign="center" py="5%">
+    <Box bgColor="#fff" h="100vh">
+      <Box textAlign="center" py="3%">
         <Heading size="2xl">{post.title}</Heading>
         <Text mt="25px" color="#757575">
           {date}
         </Text>
       </Box>
       <hr />
-      <Box px="25%" py="5%">
+      <Box px="25%" py="3%">
         <Content content={post.content} />
       </Box>
     </Box>

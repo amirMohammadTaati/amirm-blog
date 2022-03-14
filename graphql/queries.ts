@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_POSTS = gql`
-  query {
-    posts {
+  query posts($start: Int, $limit: Int) {
+    posts(start: $start, limit: $limit, sort: "createdAt:desc") {
       title
       createdAt
       description
@@ -19,6 +19,18 @@ export const GET_POST = gql`
       description
       content
       image {
+        url
+      }
+    }
+  }
+`;
+
+export const GET_GENERAL_DATA = gql`
+  query {
+    general {
+      title
+      description
+      logo {
         url
       }
     }
