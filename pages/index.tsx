@@ -4,12 +4,13 @@ import { GetServerSideProps } from "next";
 import { GET_ALL_POSTS, GET_GENERAL_DATA } from "../graphql/queries";
 import { PreviewPost } from "../lib/types";
 import { useState, useEffect } from "react";
+import { useQuery } from "@apollo/client";
 import client from "../apollo";
 
-const Home = ({ data }: { data: PreviewPost[] }) => {
-  const [posts, setPosts] = useState(data);
+const Home = ({ postsData }: { postsData: PreviewPost[] }) => {
+  const [posts, setPosts] = useState(postsData);
   const [hasMore, setHasMore] = useState(true);
-  const [general, setGeneral] = useState([]);
+  const { data } = useQuery(GET_GENERAL_DATA);
 
   const getMorePosts = async () => {
     const { data } = await client.query({
@@ -31,18 +32,8 @@ const Home = ({ data }: { data: PreviewPost[] }) => {
     })();
   }, [posts]);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await client.query({
-        query: GET_GENERAL_DATA,
-      });
-
-      setGeneral(data.general);
-    })();
-  }, []);
-
   return (
-    <Layout general={general}>
+    <Layout general={data}>
       <Main posts={posts} getMorePosts={getMorePosts} hasMore={hasMore} />
     </Layout>
   );
@@ -59,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      data: data.posts,
+      postsData: data.posts,
     },
   };
 };

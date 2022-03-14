@@ -20,7 +20,7 @@ export default function Content({ content }: { content: string }) {
         },
       })}
     >
-      2{content}
+      {content}
     </ReactMarkdown>
   );
 }
