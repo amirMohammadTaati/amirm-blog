@@ -10,14 +10,16 @@ export default function PostPage({ post }: { post: Post }) {
 
   return (
     <Box bgColor="#fff" h="100vh">
-      <Box textAlign="center" py="3%">
-        <Heading size="2xl">{post.title}</Heading>
-        <Text mt="25px" color="#757575">
+      <Box textAlign="center" py="2%">
+        <Heading as="h1" size="xl">
+          {post.title}
+        </Heading>
+        <Text fontSize={["sm", "sm", "sm", "sm"]} mt="10px" color="#757575">
           {date}
         </Text>
       </Box>
       <hr />
-      <Box px="25%" py="3%">
+      <Box px={["5%", "5%", "5%", "25%"]} py="3%">
         <Content content={post.content} />
       </Box>
     </Box>
