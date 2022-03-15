@@ -1,4 +1,5 @@
 import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 
 interface GeneralInfo {
   title: string;
@@ -20,6 +21,7 @@ export default function Layout({ children, general }: Props) {
         description={general.description}
         logoUrl={general.logo?.url}
       />
+      <Navbar title={general.title} logoUrl={general.logo?.url} />
       {children}
     </>
   );
