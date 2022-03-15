@@ -13,10 +13,11 @@ export default function Main({
 }) {
   return (
     <Box
-      w="70%"
+      w={["100%", "100%", "100%", "70%"]}
       h="100vh"
-      float="left"
-      padding="0px 170px"
+      bgColor="#eff1f5"
+      float={["none", "none", "none", "left"]}
+      padding={["0px 15px", "0px 25px", "0px 35px", "0px 170px"]}
       paddingBottom="75px"
     >
       <Posts posts={posts} getMorePosts={getMorePosts} hasMore={hasMore} />

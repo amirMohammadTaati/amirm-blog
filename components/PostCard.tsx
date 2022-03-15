@@ -35,7 +35,12 @@ export default function PostCard({
           <Heading cursor="pointer"> {title} </Heading>
         </Link>
 
-        <Text color="#757575" lineHeight={2} mt="10px">
+        <Text
+          color="#757575"
+          fontSize={["sm", "md", "lg", "xl"]}
+          lineHeight={2}
+          mt="10px"
+        >
           {description}
         </Text>
 
